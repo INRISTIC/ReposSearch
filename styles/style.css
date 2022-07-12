@@ -67,7 +67,7 @@ html {
     position: relative;
     width: 45px;
     height: 42px;
-    background-image: url('/assets/img/1.png'), url('/assets/img/2.png');
+    background-image: url('assets/img/1.png'), url('assets/img/2.png');
     transform: translateX(420px) translateY(-60px);
     cursor: pointer;
 }   
