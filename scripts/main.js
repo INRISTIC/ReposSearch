@@ -69,23 +69,23 @@ class Search {
         timeout = setTimeout(fnCall, ms)
       }
     }
-    this.view.searchInput.addEventListener('input', this.debounce(this.searchRepos.bind(this), 1000))
+   this.view.searchInput.addEventListener('input', this.debounce(this.searchRepos.bind(this), 1000))
  }
-  async searchRepos() {
-    return await fetch(`https://api.github.com/search/repositories?q=${this.view.searchInput.value}`).then((res) => {
-        if (res.ok) {
-            res.json().then(res => {
-                document.getElementById("inputList").innerHTML = "";
-                if (res.items.length < 5) {
-                    res.items.forEach(user => this.view.createUser(user))
-                } else {
-                    for (let i = 0; i < 5; i++) {
-                        this.view.createUser(res.items[i]);
-                    }
-                }
-            })
-        }
-    })
+ async searchRepos() {
+   return await fetch(`https://api.github.com/search/repositories?q=${this.view.searchInput.value}`).then((res) => {
+     if (res.ok) {
+       res.json().then(res => {
+         document.getElementById("inputList").innerHTML = "";
+            if (res.items.length < 5) {
+               res.items.forEach(user => this.view.createUser(user))
+            } else {
+              for (let i = 0; i < 5; i++) {
+                this.view.createUser(res.items[i]);
+            }
+         }
+      })
+    }
+  })
 }
 }
 
